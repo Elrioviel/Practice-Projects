@@ -1,0 +1,6 @@
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\bin\Debug\Triples In File.dll
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\bin\Debug\Triples In File.pdb
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\obj\Debug\Triples In File.csproj.CoreCompileInputs.cache
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\obj\Debug\Triples In File.dll
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\obj\Debug\Triples In File.pdb
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\Triples In File\obj\Debug\Triples In File.csproj.AssemblyReference.cache

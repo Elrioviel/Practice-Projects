@@ -1,0 +1,10 @@
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\bin\Debug\TriplesInFileUI.exe.config
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\bin\Debug\TriplesInFileUI.exe
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\bin\Debug\TriplesInFileUI.pdb
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\obj\Debug\Triples In File UI.csproj.AssemblyReference.cache
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\obj\Debug\Triples In File UI.csproj.CoreCompileInputs.cache
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\obj\Debug\TriplesInFileUI.exe
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\obj\Debug\TriplesInFileUI.pdb
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\bin\Debug\Triples In File.dll
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\bin\Debug\Triples In File.pdb
+E:\Practice for interview\Projects\TriplesInFile\TriplesInFile\TriplesInFileUI\obj\Debug\Triples In File UI.csproj.CopyComplete

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triples In File UI", "TriplesInFileUI\Triples In File UI.csproj", "{509C8C5C-21E4-48C4-BA98-AC30FF19CD8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triples In File", "Triples In File\Triples In File.csproj", "{1B8A50A5-787D-4A30-93E9-E69C4023EF95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{509C8C5C-21E4-48C4-BA98-AC30FF19CD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509C8C5C-21E4-48C4-BA98-AC30FF19CD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509C8C5C-21E4-48C4-BA98-AC30FF19CD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509C8C5C-21E4-48C4-BA98-AC30FF19CD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B8A50A5-787D-4A30-93E9-E69C4023EF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8A50A5-787D-4A30-93E9-E69C4023EF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8A50A5-787D-4A30-93E9-E69C4023EF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8A50A5-787D-4A30-93E9-E69C4023EF95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26A22020-F79D-4D2F-AF97-F4A66021FE69}
+	EndGlobalSection
+EndGlobal
