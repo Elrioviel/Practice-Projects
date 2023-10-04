@@ -10,7 +10,6 @@ namespace Triples_In_File
     public class TriplesInFileFinder : TriplesFinder
     {
         private readonly string _filePath;
-        private readonly object _lockObject = new object();
         public TriplesInFileFinder(string filePath)
         {
             _filePath = filePath;
