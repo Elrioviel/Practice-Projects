@@ -4,8 +4,8 @@ using System.Globalization;
 string filePath = string.Empty;
 List<Expense> expenses = new List<Expense>();
 Report report = new Report();
-List<DateTime> expenseDates = new();
-List<string> categories = new();
+HashSet<DateTime> expenseDates = new();
+Dictionary<string, decimal> totalsByCategory = new();
 
 Console.WriteLine("Enter file path:");
 filePath = Console.ReadLine();
@@ -18,83 +18,79 @@ if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath))
 
 foreach (string line in File.ReadLines(filePath))
 {
-    Expense expense = new Expense()
-    {
-        Date = DateTime.Parse(line.Split(';')[0]),
-        CategoryName = new Category() { Name = line.Split(';')[1] },
-        Amount = decimal.Parse(line.Split(';')[2], CultureInfo.InvariantCulture)
-    };
+    string[] parts = line.Split(';');
 
-    expenses.Add(expense);
-}
-
-// Create a list of unique expense dates.
-foreach (var exp in expenses)
-{
-    if (!expenseDates.Contains(exp.Date))
+    if (parts.Length != 3)
     {
-        expenseDates.Add(exp.Date);
+        Console.WriteLine($"Skipping invalid line (wrong format): {line}");
+        continue;
+    }
+
+    if (!DateTime.TryParse(parts[0], out DateTime date))
+    {
+        Console.WriteLine($"Skipping invalid line (bad date): {line}");
+        continue;
+    }
+
+    if (!decimal.TryParse(parts[2], NumberStyles.Number, CultureInfo.InvariantCulture, out decimal amount))
+    {
+        Console.WriteLine($"Skipping invalid line (bad amount): {line}");
+        continue;
+    }
+
+    string category = parts[1];
+
+    // track unique days
+    expenseDates.Add(date.Date);
+
+    // Accumulate totals per category
+    if (totalsByCategory.ContainsKey(category))
+    {
+        totalsByCategory[category] += amount;
+    }
+    else
+    {
+        totalsByCategory[category] = amount;
     }
 }
 
-// Create a list of unique categories.
-foreach (var exp in expenses)
+// Build report details from dictionary
+foreach (var kvp in totalsByCategory)
 {
-    if (!categories.Contains(exp.CategoryName.Name))
+    report.Details.Add(new ReportDetails
     {
-        categories.Add(exp.CategoryName.Name.ToString());
-    }
-}
-
-// Seek identical categories and dates and calculate total spent and average per day.
-foreach (var category in categories)
-{
-    decimal totalSpentByCategory = 0;
-    foreach (var exp in expenses)
-    {
-        if (exp.CategoryName.Name.ToString() == category)
-        {
-            totalSpentByCategory += exp.Amount;
-        }
-    }
-
-    report.Details.Add(new ReportDetails()
-    {
-        Category = new Category()
-        {
-            Name = category,
-        },
-        //Category = category,
-        TotalSpentByCategory = totalSpentByCategory
+        Category = kvp.Key,
+        TotalSpentByCategory = kvp.Value
     });
 }
 
 decimal totalSpent = 0;
-foreach (var detail in report.Details)
+foreach (var amount in totalsByCategory.Values)
 {
-    totalSpent += detail.TotalSpentByCategory;
+    totalSpent += amount;
 }
 
 report.TotalSpent = totalSpent;
-report.AveragePerDay = totalSpent / expenseDates.Count;
+report.AveragePerDay = expenseDates.Count == 0 ? 0 : totalSpent / expenseDates.Count;
 
 // Create report file.
 string reportFileName = "report.txt";
 string directory = Path.GetDirectoryName(filePath);
 string reportFilePath = Path.Combine(directory!, reportFileName);
 
-if (File.Exists(reportFilePath))
-{
-    File.Delete(reportFilePath);
-}
-
 using (StreamWriter sw = File.CreateText(reportFilePath))
 {
     sw.WriteLine($"Total Spent: {report.TotalSpent}");
+    sw.WriteLine();
     sw.WriteLine("Details by Category:");
+
     foreach (var detail in report.Details)
     {
-        sw.WriteLine($"{detail.Category.Name}: {detail.TotalSpentByCategory}");
+        sw.WriteLine($"{detail.Category}: {detail.TotalSpentByCategory}");
     }
+
+    sw.WriteLine();
     sw.WriteLine($"Average Per Day: {report.AveragePerDay}");
 }
+
+Console.WriteLine("Report generated successfully.");

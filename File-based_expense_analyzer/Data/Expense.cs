@@ -9,7 +9,7 @@ namespace File_based_expense_analyzer.Data
     public class Expense
     {
         public DateTime Date { get; set; }
-        public required Category CategoryName { get; set; }
+        public required string CategoryName { get; set; }
         public decimal Amount { get; set; }
     }
 }

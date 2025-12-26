@@ -15,7 +15,7 @@ namespace File_based_expense_analyzer.Data
 
     public class ReportDetails
     {
-        public Category Category { get; set; } = new Category();
+        public string Category { get; set; }
         public decimal TotalSpentByCategory { get; set; }
     }
 }
